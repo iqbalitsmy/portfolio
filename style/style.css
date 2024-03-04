@@ -1,0 +1,263 @@
+:root {
+    --primary: #fff;
+    --secondary: #D7D7D7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    background-color: var(--primary);
+}
+
+/* header section  */
+/* navigation design */
+.navigation {
+    margin: 3rem 0;
+}
+
+.navigation>ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.navigation li {
+    font-size: 20px;
+    color: black;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 7px 14px;
+    border-radius: 6px;
+}
+
+.navigation li:hover {
+    background-color: #000000;
+    color: white;
+}
+
+.navigation .contact-me {
+    padding: 7px 24px;
+    border-radius: 16px;
+    background-color: white;
+    color: black;
+}
+
+.navigation .contact-me:hover {
+    background: black;
+    color: white;
+}
+
+/* navigation design end */
+
+/* For diagonal */
+.diagonal {
+    overflow: hidden;
+    position: relative;
+    height: 100vh;
+    -webkit-transition: opacity 350ms linear;
+    -moz-transition: opacity 350ms linear;
+    -ms-transition: opacity 350ms linear;
+    -o-transition: opacity 350ms linear;
+    transition: opacity 350ms linear;
+    margin-bottom: 40px;
+}
+
+.diagonal>* {
+    position: relative;
+    z-index: 2;
+}
+
+.diagonal:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent transparent var(--secondary) transparent;
+    border-width: 0 0 1000px 400px;
+}
+
+
+.content {
+    background: transparent;
+    padding: 0 4%;
+}
+
+@media(min-width: 768px) {
+    .diagonal:after {
+        border-width: 0 0 1700px 500px;
+    }
+}
+
+@media(min-width: 992px) {
+    .diagonal:after {
+        border-width: 0 0 2500px 1000px;
+    }
+}
+
+/* diagonal design end */
+
+/* hero design */
+
+/* hero design  end*/
+
+/* header section end  */
+
+/* skill section */
+
+.section-title {
+    text-align: center;
+    font-size: large;
+}
+
+.section-title * {
+    margin-bottom: 0.4rem;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Card design */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 30px 0;
+    gap: 40px;
+}
+
+
+body .container .card {
+    position: relative;
+    min-width: 320px;
+    height: 300px;
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+        inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+        5px 5px 15px rgba(0, 0, 0, 0.3),
+        -5px -5px 15px rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    transition: 0.5s;
+}
+
+body .container .card .box {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    background: var(--secondary);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+body .container .card .box:hover {
+    transform: translateY(-30px);
+}
+
+body .container .card .box:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+body .container .card .box .content {
+    padding: 20px;
+}
+
+.card-icon {
+    position: absolute;
+    top: -10px;
+    right: 30px;
+}
+
+.card-icon svg {
+    width: 8rem;
+    height: 8rem;
+    fill: rgba(255, 255, 255, 0.3);
+}
+
+.card-footer {
+    font-size: 20px;
+    font-size: 1.2rem;
+    font-weight: 300;
+    z-index: 1;
+    transition: 0.5s;
+}
+
+.card-footer li {
+    margin-bottom: 0.4rem;
+}
+
+.card-footer h3 {
+    font-size: 1.8rem;
+    z-index: 1;
+    transition: 0.5s;
+    margin-bottom: 15px;
+}
+
+/* Card design end */
+
+
+/* skill section end */
+
+
+
+
+/* Container Design */
+.container {
+    width: 100%;
+    margin: 0 auto;
+    transition: width .1s;
+    margin-bottom: 40px;
+}
+
+@media (min-width: 640px) {
+    .container {
+        width: 640px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 768px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        width: 1024px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        width: 1280px;
+    }
+}
+
+@media (min-width: 1536px) {
+    .container {
+        width: 1536px;
+    }
+}
