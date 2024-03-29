@@ -5,7 +5,6 @@ const sendMail = require('../utils/sendMail');
 exports.sendMailRoute = async (req, res) => {
     console.log(req.body);
     const { name, email, message } = req.body;
-    console.log("route hite")
     try {
         const newUserMail = new UserMail({ name, email, message });
 

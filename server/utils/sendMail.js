@@ -18,13 +18,13 @@ const sendMail = async (data) => {
     const mailOptions = {
         from: {
             name: 'Portfolio Mail',
-            address: "saifhasanitsmy@gmail.com",
+            address: `${data.email}`,
         }, // sender address
-        to: `${data.email}`, // list of receivers
+        to: `iqbalitsmy@gmail.com`, // list of receivers
         subject: `${data.name} sent a message from portfolio website.`, // Subject line
         text: "", // plain text body
-        html: `<div><p>Dear Iqbal Hossain,<br /></p> <p>${data.name} sent a message from portfolio website. <br /><br />${data.message}</p></div>`, // html body
-        
+        html: `<div><p>Dear Iqbal Hossain,<br /></p> <p>${data.name} sent a message from portfolio website. <br />Email:${data.email}<br /><br />${data.message}</p></div>`, // html body
+
     }
 
     // console.log(path)

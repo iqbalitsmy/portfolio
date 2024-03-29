@@ -61,8 +61,8 @@ document.getElementById('mailForms').addEventListener('submit', async (e) => {
     })
 
     try {
-        // const res = await fetch('https://server-sable-pi-17.vercel.app/user-mail', {
-        const res = await fetch('http://localhost:3000/user-mail', {
+        const res = await fetch('https://portfolio-q8f3.onrender.com/user-mail/', {
+        // const res = await fetch('http://localhost:3000/user-mail', {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
