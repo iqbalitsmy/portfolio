@@ -15,7 +15,7 @@ app.use(express.json());
 
 // cors
 corsOptions = {
-    origin: 'http://127.0.0.1:5500/',
+    origin: 'https://portfolio-6ecc.onrender.com/',
     credentials: true, // access-control-allow-credentials:true
     optionSuccessStatus: 200,
     headers: ['Content-Type', 'Authorization'],
@@ -23,7 +23,7 @@ corsOptions = {
 
 app.use(cors());
 
-app.use(cookieParser());
+app.use(cookieParser(corsOptions));
 
 // path with config file 
 dotenv.config({ path: "./config/config.env" });

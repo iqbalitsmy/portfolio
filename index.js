@@ -48,9 +48,25 @@ const drawer = () => {
     }
 }
 
+const btnDisable = (btnId) => {
+    const btn = document.getElementById(btnId);
+    if (btn.className === "submit-btn") {
+        btn.className += " submit-btn-disable";
+    } else {
+        btn.className += "submit-btn";
+    }
+}
+
 // send mail data
 document.getElementById('mailForms').addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    // disable send mail button
+    const btn = document.getElementById("submit-btn");
+    btn.disabled = true;
+
+    snackBar("Email is sending...");
+
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const mes = document.getElementById("message").value;
@@ -61,8 +77,8 @@ document.getElementById('mailForms').addEventListener('submit', async (e) => {
     })
 
     try {
-        const res = await fetch('https://portfolio-q8f3.onrender.com/user-mail/', {
-        // const res = await fetch('http://localhost:3000/user-mail', {
+        const res = await fetch('https://portfolio-6ecc.onrender.com/user-mail/', {
+            // const res = await fetch('http://localhost:3000/user-mail', {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
@@ -77,8 +93,10 @@ document.getElementById('mailForms').addEventListener('submit', async (e) => {
 
         if (res.ok) {
             snackBar("Email send successfully.");
+            btn.disabled = false;
             document.getElementById('mailForms').reset();
         } else {
+            btn.disabled = false;
             alert('Failed to send email. Please try again later.');
         }
 
@@ -86,6 +104,8 @@ document.getElementById('mailForms').addEventListener('submit', async (e) => {
 
     } catch (error) {
         console.error('Error:', error);
+        alert('Failed to send email. Please try again later.');
+        btn.disabled = false;
     }
 })
 
