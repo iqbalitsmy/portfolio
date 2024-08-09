@@ -1,3 +1,7 @@
+/* google font */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 :root {
     --primary: #fff;
     --secondary: #D7D7D7;
@@ -7,6 +11,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
 }
 
 html,
@@ -46,8 +51,7 @@ svg {
 
 .navigation li,
 .navigation li a {
-    font-size: 20px;
-    font-weight: 600;
+    font-weight: 500;
     padding: 12px 14px;
     text-decoration: none;
     color: white;
@@ -185,10 +189,17 @@ svg {
     transition: all;
 }
 
+.hero figure {
+    background: #f8f8f8;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 3vw;
+    border-radius: 8px;
+}
+
 .hero img {
-    display: block;
-    max-width: 60%;
-    height: auto;
+    height: 200px;
     border-radius: 8px;
     margin: 0 auto;
 }
@@ -199,9 +210,12 @@ svg {
 
 /* skill section */
 
+.skills {
+    margin-bottom: 2.5rem;
+}
+
 .section-title {
     text-align: center;
-    font-size: large;
 }
 
 .section-title * {
@@ -209,7 +223,6 @@ svg {
 }
 
 .section-title h2 {
-    font-size: 32px;
     font-weight: 700;
     text-transform: uppercase;
     margin-bottom: 24px;
@@ -227,8 +240,8 @@ svg {
 
 body .container .card {
     position: relative;
-    min-width: 300px;
-    height: 300px;
+    min-width: 220px;
+    height: 250px;
     box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
         inset -5px -5px 15px rgba(255, 255, 255, 0.1),
         5px 5px 15px rgba(0, 0, 0, 0.3),
@@ -253,7 +266,7 @@ body .container .card .box {
 }
 
 body .container .card .box:hover {
-    transform: translateY(-30px);
+    /* transform: translateY(-30px); */
 }
 
 body .container .card .box:before {
@@ -283,9 +296,6 @@ body .container .card .box .content {
 }
 
 .card-footer {
-    font-size: 20px;
-    font-size: 1.2rem;
-    font-weight: 300;
     z-index: 1;
     transition: 0.5s;
 }
@@ -308,109 +318,88 @@ body .container .card .box .content {
 /* projects section design */
 
 .projects .card-container {
-    gap: 0;
+    margin-bottom: 4rem;
 }
 
 /* Project card */
 .container .project-card {
-    position: relative;
-    cursor: pointer;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    width: 220px;
 }
 
-.container .project-card .face {
-    width: 320px;
-    height: 370px;
-    transition: 0.5s;
-}
-
-.container .project-card .face figure img {
-    min-width: 100%;
-    max-height: 245px;
-}
-
-.container .project-card .face.face1 {
-    position: relative;
+.container .project-card .card-header {
+    padding: 8px;
+    display: grid;
+    place-items: center;
     background: #444;
+    color: white;
+    position: relative;
+}
+
+.container .project-card .card-header img {
+    width: auto;
+    max-height: 160px;
+}
+
+.container .project-card:hover .card-header .card-img {
+    background: var(--secondary);
+    opacity: 0.05;
+    transition: all 0.5s ease-in-out;
+}
+
+.container .project-card .card-header .project-details {
+    list-style: none;
+    position: absolute;
+    opacity: 0;
+    bottom: 0;
+    max-height: 0;
+    padding: 1rem;
+}
+
+.container .project-card .card-header .project-details > li {
+    margin-bottom: 0.8rem;
+}
+
+.container .project-card:hover .card-header .project-details {
+    display: block;
+    z-index: 1;
+    bottom: 80%;
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+}
+
+.container .project-card .card-details {
+    padding: 1rem;
+}
+.container .project-card .card-details .card-details-titles {
+    margin-bottom: 0.5rem;
+}
+
+.container .project-card .card-details .card-details-titles h3 {
     display: flex;
     justify-content: center;
-    align-items: center;
-    z-index: 1;
-    transform: translateY(100px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-    color: white;
+    margin-bottom: 0.3rem;
 }
 
-.container .project-card:hover .face.face1 {
-    background: var(--secondary);
-    transform: translateY(0);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0);
-    color: black;
-}
-
-.container .project-card .face.face1 .content {
-    opacity: 0.8;
-    transition: 0.5s;
-
-}
-
-.container .project-card:hover .face.face1 .content {
-    opacity: 1;
-}
-
-.container .project-card .face.face1 .content .icons {
+.container .project-card .card-details-titles .icons {
     display: flex;
     justify-content: center;
     gap: 16px;
 }
 
-.container .project-card .face.face1 .content .icons svg {
-    fill: white;
-}
 
-.container .project-card:hover .face.face1 .content .icons svg {
-    fill: black;
-}
-
-.container .project-card .face.face1 .content h3 {
-    margin: 10px 0 10px;
-    text-align: center;
-    font-size: 1.5em;
-}
-
-.container .project-card .face.face1 .content img {
-    max-width: 200px;
-}
-
-.container .project-card .face.face2 {
-    position: relative;
-    background: #fff;
+.container .project-card .card-details .tec-list {
     display: flex;
-    justify-content: center;
-    padding: 20px;
-    box-sizing: border-box;
-    transform: translateY(-270px);
-    max-height: 250px;
+    flex-wrap: wrap;
+    gap: 4px;
+    font-size: 14px;
 }
 
-.container .project-card:hover .face.face2 {
-    transform: translateY(0);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-}
-
-.container .project-card .face.face2 .content>p {
-    margin: 0;
-    padding: 0;
-    font-size: larger;
-}
-
-.container .project-card .face.face2 .content .tec-list p {
-    margin: 15px 0 0;
+.container .project-card .card-details .tec-list li {
     display: inline-block;
-    text-decoration: none;
-    font-weight: 900;
-    background: #333;
-    color: #fff;
     padding: 5px;
+    background: #444;
+    color: #fff;
     border-radius: 6px;
 }
 
@@ -441,7 +430,7 @@ body .container .card .box .content {
     margin-bottom: 18px;
 }
 
-.contact-container .contact-form h2 {
+.contact-container .contact-form h3 {
     text-align: center;
     margin-bottom: 18px;
 }
@@ -513,7 +502,6 @@ textarea {
 
 .contact-container .contact-details div div>p {
     font-weight: 700;
-    font-size: larger;
 }
 
 .contact-container .contact-details div div>svg {
@@ -556,10 +544,11 @@ footer {
     padding: 44px 0;
     background: #F9FAFB;
     text-align: center;
+    font-size: small;
 }
 
 footer span {
-    font-weight: 800;
+    font-weight: 600;
 }
 
 /* footer section design end */
@@ -568,7 +557,7 @@ footer span {
 
 #snackbar {
     visibility: hidden;
-    min-width: 240px;
+    min-width: 230px;
     margin-left: 0;
     background-color: var(--secondary);
     color: #000;
@@ -579,7 +568,7 @@ footer span {
     z-index: 1;
     left: 30px;
     bottom: 30px;
-    font-size: 17px;
+    font-size: 14px;
 }
 
 #snackbar.show {
