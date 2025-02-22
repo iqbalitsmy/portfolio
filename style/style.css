@@ -717,6 +717,35 @@ textarea {
 
 /* contact section design end */
 
+
+/* go to top button design */
+/* Style for the "Go to Top" button */
+#goToTop {
+    display: none;
+    /* Hidden initially */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    /* Ensures the button is on top */
+    border: none;
+    outline: none;
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    fill: #FFF;
+}
+
+#goToTop:hover {
+    background-color: #333;
+}
+
+/* go to top button design end */
+
 /* footer section design */
 
 footer {

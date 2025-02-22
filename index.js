@@ -1,3 +1,34 @@
+let goToTopBtnTimeOut;
+
+window.addEventListener('scroll', () => {
+    const goToTopBtn = document.getElementById('goToTop');
+
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+        goToTopBtn.style.display = "block";
+
+        clearTimeout(goToTopBtnTimeOut);
+
+        goToTopBtnTimeOut = setTimeout(() => {
+            goToTopBtn.style.display = "none";
+        }, 3000);
+    } else {
+        goToTopBtn.style.display = "none";
+    }
+});
+
+// Smooth scroll to top
+document.getElementById('goToTop').addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+
+
+
+
+
 // copy to clipboard
 const copyToClipboard = async (copyText) => {
     try {
