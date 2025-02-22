@@ -8,15 +8,37 @@ const copyToClipboard = async (copyText) => {
     }
 }
 
-// snackbar 
-const snackBar = (mes) => {
-    const mesSnackbar = document.getElementById('snackbar');
-    mesSnackbar.innerHTML = mes
-    mesSnackbar.className = "show"
-    setTimeout(() => {
-        mesSnackbar.className = mesSnackbar.className.replace("show", "")
-    }, 3000)
-}
+let snackbarTimeout;
+
+const snackBar = (mes, duration = 3000) => {
+    const mesSnackbar = document.getElementById("snackbar");
+
+    // If a snackbar is already visible, clear its timeout and hide it first.
+    if (mesSnackbar.classList.contains("show")) {
+        clearTimeout(snackbarTimeout);
+        mesSnackbar.classList.remove("show");
+
+
+        // Wait for the hide animation to complete before showing the new message.
+        setTimeout(() => {
+            showSnackbarMessage(mesSnackbar, mes, duration);
+        }, 300); // Adjust delay to match your CSS transition timing.
+    } else {
+        showSnackbarMessage(mesSnackbar, mes, duration);
+    }
+};
+
+const showSnackbarMessage = (mesSnackbar, mes, duration) => {
+    mesSnackbar.innerHTML = mes;
+    mesSnackbar.classList.add("show");
+
+    // Only set the removal timer if duration is greater than 0.
+    if (duration > 0) {
+        snackbarTimeout = setTimeout(() => {
+            mesSnackbar.classList.remove("show");
+        }, duration);
+    }
+};
 
 function emailCopied() {
     const copiedEmail = document.getElementById("copiedEmail");
@@ -65,7 +87,7 @@ document.getElementById('mailForms').addEventListener('submit', async (e) => {
     const btn = document.getElementById("submit-btn");
     btn.disabled = true;
 
-    snackBar("Email is sending...");
+    snackBar("Email is sending...", -1);
 
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
@@ -78,7 +100,6 @@ document.getElementById('mailForms').addEventListener('submit', async (e) => {
 
     try {
         const res = await fetch('https://portfolio-6ecc.onrender.com/user-mail/', {
-            // const res = await fetch('http://localhost:3000/user-mail', {
             method: "POST",
             headers: {
                 "Content-type": "application/json"

@@ -6,7 +6,6 @@ const transporter = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-        // TODO: replace `user` and `pass` values from <https://forwardemail.net>
         user: "saifhasanitsmy@gmail.com",
         pass: "icjtgvctdosmxiob",
     },
@@ -24,7 +23,7 @@ const sendMail = async (data) => {
         subject: `${data.name} sent a message from portfolio website.`, // Subject line
         text: "", // plain text body
         html: `<div><p>Dear Iqbal Hossain,<br /></p> <p>${data.name} sent a message from portfolio website. <br />Email: ${data.email}<br /><br />${data.message}</p></div>`, // html body
-
+        priority: 'high', // Mark the email as important
     }
 
     // console.log(path)
