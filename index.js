@@ -1,18 +1,18 @@
 let goToTopBtnTimeOut;
 
 window.addEventListener('scroll', () => {
-    const goToTopBtn = document.getElementById('goToTop');
+    const goToTop = document.getElementById("goToTop");
 
     if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        goToTopBtn.style.display = "block";
-
+        goToTop.style.display = "block";
         clearTimeout(goToTopBtnTimeOut);
 
         goToTopBtnTimeOut = setTimeout(() => {
-            goToTopBtn.style.display = "none";
+            goToTop.style.display = "none";
         }, 3000);
+
     } else {
-        goToTopBtn.style.display = "none";
+        goToTop.style.display = "none"
     }
 });
 
@@ -23,11 +23,6 @@ document.getElementById('goToTop').addEventListener('click', () => {
         behavior: "smooth"
     });
 });
-
-
-
-
-
 
 // copy to clipboard
 const copyToClipboard = async (copyText) => {
@@ -81,7 +76,12 @@ function numberCopied() {
     const copiedNum = document.getElementById("copiedNum");
     copyToClipboard(copiedNum.innerHTML);
     snackBar("Text copied to clipboard");
+}
 
+function whatsAppNumberCopied() {
+    const copiedNum = document.getElementById("copiedWhatsAppNum");
+    copyToClipboard(copiedNum.innerHTML);
+    snackBar("Text copied to clipboard");
 }
 
 const drawer = () => {
