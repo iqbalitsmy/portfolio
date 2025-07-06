@@ -211,6 +211,10 @@ svg {
 /* header section end  */
 
 /* timeline section start */
+.timeline-container {
+    margin-bottom: 4.5rem;
+}
+
 
 .timeline {
     position: relative;
@@ -312,10 +316,10 @@ svg {
     margin-bottom: 0.8rem;
 }
 
-.timeline-content .work-des {
+.timeline-content .work-des, .timeline-content .work-des li {
     font-size: 14px;
     margin-bottom: 0.8rem;
-    list-style-type: none;
+    /* list-style-type: none; */
 }
 
 .timeline-content .tec-list {
@@ -378,7 +382,7 @@ svg {
 /* skill section */
 
 .skills {
-    margin-bottom: 2.5rem;
+    margin-bottom: 4.5rem;
 }
 
 .section-title {
@@ -386,7 +390,7 @@ svg {
 }
 
 .section-title * {
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.8rem;
 }
 
 .section-title h2 {
@@ -483,6 +487,9 @@ body .container .card .box .content {
 /* skill section end */
 
 /* projects section design */
+.projects{
+    margin-bottom: 4.5rem;
+}
 
 .projects .card-container {
     margin-bottom: 4rem;
@@ -577,7 +584,9 @@ body .container .card .box .content {
 
 
 /* contact section design */
-.contact {}
+.contact {
+    margin-bottom: 4.5rem;
+}
 
 /* contact form design */
 .contact-container {
